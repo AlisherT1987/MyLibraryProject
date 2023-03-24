@@ -1,4 +1,4 @@
-package com.cydeo.utility;
+package com.library.utility;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -41,7 +41,7 @@ public class Driver {
                 case "remote-chrome":
                     try {
                         // assign your grid server address
-                        String gridAddress = "52.90.101.17";
+                        String gridAddress = "18.207.3.137";
                         URL url = new URL("http://"+ gridAddress + ":4444/wd/hub");
                         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                         desiredCapabilities.setBrowserName("chrome");
@@ -55,7 +55,7 @@ public class Driver {
                 case "remote-firefox":
                     try {
                         // assign your grid server address
-                        String gridAddress = "52.90.101.17";
+                        String gridAddress = "18.207.3.137";
                         URL url = new URL("http://"+ gridAddress + ":4444/wd/hub");
                         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                         desiredCapabilities.setBrowserName("firefox");
