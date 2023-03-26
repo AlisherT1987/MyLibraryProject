@@ -8,4 +8,5 @@ public class DashboardPage extends BasePage{
     public WebElement borrowedBooksNumber;
     @FindBy(xpath = "//h6[.='Borrowed Books']")
     public WebElement borrowedBooksModule;
+
 }
