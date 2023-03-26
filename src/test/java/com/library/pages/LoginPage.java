@@ -24,7 +24,6 @@ public class LoginPage extends BasePage{
         String username= ConfigurationReader.getProperty(userType+"_username");
         String password=ConfigurationReader.getProperty("password");
 
-
         emailBox.sendKeys(username);
         passwordBox.sendKeys(password);
         loginButton.click();
