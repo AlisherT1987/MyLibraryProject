@@ -44,8 +44,6 @@ public class US145_StepDefs {
     public void userGetNumberOfModule(String module) {
         BrowserUtil.waitFor(2);
         Assert.assertEquals(module, dashboardPage.borrowedBooksModule.getText());
-
-
     }
 
     @Then("the number should be same with database")

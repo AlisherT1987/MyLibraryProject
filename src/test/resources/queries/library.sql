@@ -14,3 +14,7 @@ where name like 'Stay Strong';
 select *from book_borrow
 where book_id=10198;
 select name from book_categories;
+select books.name,book_categories.name from library2.book_categories,library2.books;
+select name from books
+where name in ('Head First Java','The Scrum Field Guide')
+group by name;
