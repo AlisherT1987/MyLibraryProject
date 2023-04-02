@@ -9,3 +9,8 @@ select bc.name,count(*) from book_borrow bb inner join books b on bb.book_id = b
 order by 2 desc;
 select count(distinct id) from users;
 select *from users;
+select *from books
+where name like 'Stay Strong';
+select *from book_borrow
+where book_id=10198;
+select name from book_categories;

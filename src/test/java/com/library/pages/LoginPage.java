@@ -19,6 +19,8 @@ public class LoginPage extends BasePage{
 
     @FindBy(tagName = "button")
     public WebElement loginButton;
+    @FindBy(xpath = "//a[@class='nav-link dropdown-toggle']")
+    public WebElement accountHolder;
     public void login(String userType){
 
         String username= ConfigurationReader.getProperty(userType+"_username");
