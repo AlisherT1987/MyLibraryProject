@@ -15,11 +15,7 @@ public class US02_StepDefs {
     DashboardPage dashboard=new DashboardPage();
     LoginPage login=new LoginPage();
     String bbNum;
-    @Before
-    public void setupDB(){
-        System.out.println("Connecting to database...");
-        DB_Util.createConnection();
-    }
+
     @Given("the {string} on the home page")
     public void the_on_the_home_page(String userType) {
         login.login(userType);
@@ -42,9 +38,5 @@ BrowserUtil.waitFor(3);
         Assert.assertEquals(expectedBBNum,bbNum);
 
     }
-    @After
-    public void closeDB(){
-        System.out.println("Closing DB connection...");
-        DB_Util.destroy();
-    }
+
 }
