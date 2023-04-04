@@ -4,6 +4,8 @@ import com.library.pages.DashboardPage;
 import com.library.pages.LoginPage;
 import com.library.utility.BrowserUtil;
 import com.library.utility.DB_Util;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,6 +15,11 @@ public class US02_StepDefs {
     DashboardPage dashboard=new DashboardPage();
     LoginPage login=new LoginPage();
     String bbNum;
+    @Before
+    public void setupDB(){
+        System.out.println("Connecting to database...");
+        DB_Util.createConnection();
+    }
     @Given("the {string} on the home page")
     public void the_on_the_home_page(String userType) {
         login.login(userType);
@@ -34,5 +41,10 @@ BrowserUtil.waitFor(3);
         String expectedBBNum=DB_Util.getFirstRowFirstColumn();
         Assert.assertEquals(expectedBBNum,bbNum);
 
+    }
+    @After
+    public void closeDB(){
+        System.out.println("Closing DB connection...");
+        DB_Util.destroy();
     }
 }

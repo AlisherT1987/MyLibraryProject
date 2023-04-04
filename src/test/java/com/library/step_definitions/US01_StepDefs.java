@@ -1,6 +1,8 @@
 package com.library.step_definitions;
 
 import com.library.utility.DB_Util;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -11,6 +13,11 @@ import java.util.List;
 public class US01_StepDefs {
     String numOfID;
     List<String> expectedColumns=new ArrayList<>();
+  @Before
+  public void setupDB(){
+      System.out.println("Connecting to database...");
+      DB_Util.createConnection();
+  }
     @When("Execute query to get all IDs from users")
     public void execute_query_to_get_all_i_ds_from_users() {
 
@@ -39,5 +46,10 @@ public class US01_StepDefs {
     @Then("verify the below columns are listed in result")
     public void verify_the_below_columns_are_listed_in_result(List<String>actualColumns) {
        Assert.assertEquals(expectedColumns,actualColumns);
+    }
+    @After
+    public void closeDB(){
+        System.out.println("Closing DB connection...");
+        DB_Util.destroy();
     }
 }
